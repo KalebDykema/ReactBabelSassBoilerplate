@@ -1,0 +1,20 @@
+// Variables
+$font-size: 20px;
+$font-family: Verdana, Geneva, Tahoma, sans-serif;
+$background-color: black;
+
+// Set text color based on background
+@function set-text-color($background-color){
+    @if(lightness($background-color) > 70) {
+        @return #333;
+    }
+    @else {
+        @return #fff;
+    }
+}
+
+// Set background & text color
+@mixin set-background($color){
+    background-color: $color;
+    color: set-text-color($color);
+}
